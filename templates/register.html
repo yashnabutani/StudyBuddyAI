@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>StudyAI - Register</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0b1020;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    width: 380px;
+    max-width: 92%;
+    background: #131c31;
+    border: 1px solid #2d3955;
+    border-radius: 18px;
+    padding: 30px;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg,#7c3aed,#2563eb);
+    font-size: 28px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 18px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #7f8aa5;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    color: #aab5cb;
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 17px;
+    background: #0d1629;
+    color: white;
+    border: 1px solid #34415e;
+    border-radius: 9px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #5b70d5;
+}
+
+button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: #5269db;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.error {
+    background: #3b1d2a;
+    color: #ff9eb3;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.bottom {
+    text-align: center;
+    margin-top: 20px;
+    color: #7d89a1;
+    font-size: 12px;
+}
+
+.bottom a {
+    color: #8194ff;
+    text-decoration: none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="logo">
+        🤖
+    </div>
+
+    <h1>
+        Create Account
+    </h1>
+
+    <div class="subtitle">
+        Start learning with StudyAI
+    </div>
+
+
+    {% if error %}
+
+    <div class="error">
+        {{ error }}
+    </div>
+
+    {% endif %}
+
+
+    <form method="POST">
+
+        <label>
+            Name
+        </label>
+
+        <input
+            type="text"
+            name="name"
+            placeholder="Your name"
+            required
+        >
+
+
+        <label>
+            Email
+        </label>
+
+        <input
+            type="email"
+            name="email"
+            placeholder="you@example.com"
+            required
+        >
+
+
+        <label>
+            Password
+        </label>
+
+        <input
+            type="password"
+            name="password"
+            placeholder="Minimum 6 characters"
+            minlength="6"
+            required
+        >
+
+
+        <button type="submit">
+            Create Account
+        </button>
+
+    </form>
+
+
+    <div class="bottom">
+
+        Already have an account?
+
+        <a href="{{ url_for('login') }}">
+            Login
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
